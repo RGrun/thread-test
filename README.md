@@ -1,6 +1,6 @@
 # Thread Test
 
-I wrote this program in order to better understand multithreading in Java.
+I wrote this program to better understand multithreading in Java.
 
 # Usage
 

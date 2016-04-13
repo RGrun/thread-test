@@ -4,7 +4,8 @@ I wrote this program to better understand multithreading in Java.
 
 # Usage
 
-Compile it, then run `java ThreadTest [consumers|poll]`.
+Instead of making you copy my intellij project setup, just download the compiled jar 
+[here](http://pub.furu.guru/ThreadTest.jar), then run `java -jar ThreadTest.jar [consumers|poll]`.
 
 Consumers runs three threads, asking you for numeric input. Every number
 you give it, it packs up and sends to Adder and Multiplier, which run in their 

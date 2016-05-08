@@ -45,9 +45,11 @@ public class Multiplier extends Worker {
 
         StringBuilder builder = new StringBuilder();
 
-        while(true) {
 
-            try {
+        try {
+
+            while(true) {
+
                 WorkMessage msg = (WorkMessage) ((PriorityBlockingQueue) inputQueue).take();
 
                 int payload = msg.payload;
@@ -56,12 +58,13 @@ public class Multiplier extends Worker {
                 String report = "Multiplier got message at: " + time + ". Result: " + (payload * toMultiply) + "\n";
 
                 builder.append(report);
-
-            } catch (InterruptedException ie) {
-                writeToReportFile(builder.toString());
             }
 
+        } catch (InterruptedException ie) {
+            writeToReportFile(builder.toString());
         }
+
+
     }
 
     public void sendToQueue(int payload) {

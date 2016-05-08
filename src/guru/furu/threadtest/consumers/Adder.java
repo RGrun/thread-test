@@ -44,9 +44,11 @@ public class Adder extends Worker {
 
         StringBuilder builder = new StringBuilder();
 
-        while(true) {
 
-            try {
+        try {
+
+            while(true) {
+
                 // THIS CALL BLOCKS
                 WorkMessage msg = (WorkMessage) ((PriorityBlockingQueue) inputQueue).take();
 
@@ -56,12 +58,13 @@ public class Adder extends Worker {
                 String report = "Adder got message at: " + time + ". Result: " + (payload + toAdd) + "\n";
 
                 builder.append(report);
-
-            } catch (InterruptedException ie) {
-                // catch InterruptedException to end loop and print report
-                writeToReportFile(builder.toString());
             }
+
+        } catch (InterruptedException ie) {
+            // catch InterruptedException to end loop and print report
+            writeToReportFile(builder.toString());
         }
+
     }
 
     public void sendToQueue(int payload) {
